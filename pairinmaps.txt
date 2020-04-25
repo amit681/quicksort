@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+#define ll long long int
+using namespace std;
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    ll q;
+    cin>>q;
+    while(q--)
+    {
+        string s;
+        cin>>s;
+        map<pair<ll,ll>,ll> m;
+        m[{0,0}]=0;
+        pair<ll,ll> p;
+        ll a=0,b=0,c=0,ans=0;
+        for(ll i=0;i<s.size();i++)
+        {
+        
+            if(s[i]=='a' ) a++;
+            else if(s[i]=='b' ) b++;
+            else if(s[i]=='c' ) c++;
+            
+            if(m.find({b-a,c-b})==m.end()) 
+            {
+                //cout<<m[{b-a,c-b}]<<"K"<<endl;
+                m[{b-a,c-b}]=0;
+            }
+            else m[{b-a,c-b}]++;
+            ans+=m[{b-a,c-b}];
+           //cout<<m[{b-a,c-b}]<<endl;
+             
+        }
+        cout<<ans<<endl;
+    }
+}
+
+
+
+https://www.hackerearth.com/practice/algorithms/sorting/quick-sort/practice-problems/algorithm/beautiful-strings-10/
